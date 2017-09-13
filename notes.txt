@@ -1,0 +1,53 @@
+Notes from DjangoCon US 2016 - Django and React: Perfect Together by Jack McCloy
+
+
+- django follows MVC w/o react
+- in django, view is split into "views.py" and templates
+    . MV->TC
+    . react will replace Templates
+- django with react MVRC
+    . not full mvc, but not trying to be
+
+- why use?
+    . SPA
+    . reusable codebase for web/ios/android w/ react native
+    . manage complicated state more easily
+        . good for large projects
+    .React is only UI layer, doesn't matter what rest of stack
+    .application state is separate from DOM
+    .react controls dom change, not you
+
+
+- DRF, django views will just be an API layer
+Steps:
+- npm init
+- install npm packages
+- learn redux
+- make server.js
+    .run node server in dev environment
+
+
+-install pip django-webpack-loader
+-all webpack loader to installed apps
+-additional config if needed
+-load render bundle from webpack loader in django template
+
+
+
+- packages.json
+    .babel-core
+    .babel-loader
+    .babel-plugin-react-transform
+    .babel-plugin-transform-class-properties
+    .babel-preset-es2015
+    .babel-preset-react
+    .babel-preset-stage-0
+    .history
+    .react
+    .react-redux
+    .react-router
+    .redux
+    .redux-router
+    .webpack
+    .webpack-bundle-tracker
+    .webpack-dev-server
