@@ -1,0 +1,16 @@
+Babel packages mentioned in talk:
+
+    .babel-core // main babel node library
+    .babel-loader // babel plugin for support w/ webpack
+    .babel-plugin-react-transform // support for react
+    .babel-plugin-transform-class-properties // support for class properties in react
+    .babel-preset-es2015 // support for es2015 features, preset compiles all dependencies together, rather than installing one by one
+    .babel-preset-react // support for react, jsx
+    .babel-preset-stage-0 // support for new features that are not yet finalized, stage 0 is the earliest stage, 3 being the last and closest to being accepted into standard
+
+
+What is babel?
+
+- transforms ES6 (new javascript) to JS
+- lets devs use new ES6 features without sacrificing backwards compatibility
+- support for many different build/test systems
