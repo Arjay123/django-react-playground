@@ -24,13 +24,23 @@ Babel is a package that transforms ES6 (new javascript) into JS compatible with 
     .babel-preset-react // support for react, jsx
     .babel-preset-stage-0 // support for new features that are not yet finalized, stage 0 is the earliest stage, 3 being the last and closest to being accepted into standard
 
+
+# Webpack
+
+Webpack is a module bundler for front-end applications. It puts all assets into a dependency graph, from which you can reference those assets in your application. Webpack has been adopted as the main build tool by the React dev community. It replaces the need for inserting all scripts manually into your templates:
+
+And also replaces bundling css, js, etc. using grunt (although it does not replace grunt completely as bundling css, js is not the only thing grunt is for).
+
+For more in depth information I would recommend reading [Webpack Concepts](https://webpack.js.org/concepts/)
+
+
 # TODO
 - [x] DjangoCon US 2016 - Django and React: Perfect Together by Jack McCloy: https://www.youtube.com/watch?v=zYHv6U86X0Y
 
 > I watched this talk to get a baseline idea of how Django hooks up to React and take notes on things that I need to learn further before attemping to create my own app.
 
 - [x] What is Babel?
-- [ ] What is Webpack?
+- [x] What is Webpack?
 - [ ] What is Redux, is it needed for django-react?
 - [ ] Create Djano Rest Framework sample app
 - [ ] What is django-webpack-loader?

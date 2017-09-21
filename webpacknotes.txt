@@ -1,0 +1,43 @@
+-build tool, putting all assets into dependency graph
+-allows use for require() to point to local files
+
+-use when? complex app w/ many static assets: images,css, fonts, etc.
+-checks for require(), replace w/ file loader
+-main build tool for react
+-comes w/ dev server for local dev testing
+
+npm install --save-dev babel-loader babel-core babel-preset-env
+
+npm install --save-dev react react-dom webpack babel-loader babel-core babel-preset-env babel-preset-react
+
+1. npm init -y
+2. npm install --save-dev babel-core babel-loader babel-preset-env babel-preset-react webpack webpack-dev-server
+3. webpack.config.js
+4. npm run build script
+
+const path = require('path');
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    devServer: {
+        contentBase: './dist'
+    },
+    module: {
+        rules:[
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['react']
+                    }
+                }
+            }
+        ]
+  }
+};
