@@ -29,7 +29,7 @@ Babel is a package that transforms ES6 (new javascript) into JS compatible with 
 
 > I watched this talk to get a baseline idea of how Django hooks up to React and take notes on things that I need to learn further before attemping to create my own app.
 
-- [ ] What is Babel?
+- [x] What is Babel?
 - [ ] What is Webpack?
 - [ ] What is Redux, is it needed for django-react?
 - [ ] Create Djano Rest Framework sample app
