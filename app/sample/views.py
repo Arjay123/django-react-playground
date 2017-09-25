@@ -1,16 +1,17 @@
-from sample.models import Person
-from sample.serializers import PersonSerializer
-from rest_framework import generics
 from django.contrib.auth.models import User
-from sample.serializers import UserSerializer
-from rest_framework import permissions
+
+from sample.models import Person
 from sample.permissions import IsOwnerOrReadOnly
+from sample.serializers import PersonSerializer
+from sample.serializers import UserSerializer
+
+from rest_framework import permissions
+from rest_framework import viewsets
 from rest_framework.decorators import api_view
+from rest_framework.decorators import detail_route
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from rest_framework import viewsets
-from rest_framework.decorators import detail_route
 
 class PersonViewSet(viewsets.ModelViewSet):
     queryset = Person.objects.all()
