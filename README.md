@@ -42,5 +42,5 @@ For more in depth information I would recommend reading [Webpack Concepts](https
 - [x] What is Babel?
 - [x] What is Webpack?
 - [ ] What is Redux, is it needed for django-react?
-- [ ] Create Djano Rest Framework sample app
+- [x] Create Djano Rest Framework sample app
 - [ ] What is django-webpack-loader?
