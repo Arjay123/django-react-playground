@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from sample.views import PersonViewSet, UserViewSet
+from sample.views import PersonViewSet, UserViewSet, index
 from rest_framework.routers import DefaultRouter
 
 
@@ -25,7 +25,8 @@ router.register(r'persons', PersonViewSet)
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^$', index, name='index'),
+    url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls',
         namespace='rest_framework')),
 ]
