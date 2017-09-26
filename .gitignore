@@ -102,3 +102,4 @@ ENV/
 
 node_modules
 db.sqlite3
+migrations
