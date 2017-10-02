@@ -1,8 +1,8 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
+var React = require('react');
+var ReactDOM = require('react-dom');
+import css from './index.css';
 
-
-class Hello extends React.Component {
+class People extends React.Component {
 
     constructor(props){
         super(props);
@@ -32,23 +32,57 @@ class Hello extends React.Component {
     }
 
     render() {
-        var data_render = <h2>sup</h2>
+
+        var data_render = <p className="error">Error: data not loaded</p>
         if(this.state.data){
             data_render = this.state.data.map((i, j) =>
-                <h2>{i.name}</h2>
+                <Person key={j} name={i.name} game={i.fav_game} age={i.age} />
             );
-        }
-        else {
-            console.log("butts")
         }
 
         return (
-            <div>
-                <h1>Hello, React!</h1>
+            <div className="people">
                 {data_render}
             </div>
         )
     }
 }
 
-ReactDOM.render(<Hello />, document.getElementById('container'))
+class Person extends React.Component {
+    render(){
+        return(
+            <div className="person">
+                <h3>{this.props.name}</h3>
+                <h4>Age {this.props.age}</h4>
+                <p>Favorite Game: {this.props.game}</p>
+            </div>
+        )
+    }
+}
+
+class App extends React.Component {
+    render() {
+        return(
+            <div className="app">
+                <Header />
+                <div className="content">
+                    <h1>Data from API call</h1>
+                    <People />
+                </div>
+            </div>
+        )
+    }
+}
+
+
+class Header extends React.Component {
+    render() {
+        return(
+            <header className="hdr">
+                <h1>django-react-playground</h1>
+            </header>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('container'))

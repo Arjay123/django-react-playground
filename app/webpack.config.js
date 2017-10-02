@@ -12,7 +12,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './assets/bundles/'),
-        publicPath: 'http://localhost:3000/static/bundles'
+        publicPath: 'http://localhost:3000/static/bundles/'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -38,6 +38,10 @@ module.exports = {
                         presets: ['react']
                     }
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader' ]
             }
         ]
   }
