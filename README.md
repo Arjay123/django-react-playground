@@ -84,6 +84,14 @@ These steps assume you have a fresh ubuntu server
 
 13. Check that you can access the server at `SERVER.IP.ADDRESS:8000` in your web browser
 
+# Deploying on Ubuntu
+
+For deployment to an ubuntu server I would recommend switching the database engine from SQLite to PostgreSQL, follow this [tutorial]( https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04).
+
+### Apache
+
+I use apache with mod_wsgi to deploy my projects, reference the [Django Docs](https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/modwsgi/) for more info on how to set up your apache config file.
+
 # TODO
 - [x] DjangoCon US 2016 - Django and React: Perfect Together by Jack McCloy: https://www.youtube.com/watch?v=zYHv6U86X0Y
 
@@ -95,3 +103,5 @@ These steps assume you have a fresh ubuntu server
 - [x] Create Djano Rest Framework sample app
 - [ ] What is django-webpack-loader?
 - [x] Install instructions
+- [x] Deployment
+- [ ] Deployment sample files
