@@ -33,6 +33,56 @@ And also replaces bundling css, js, etc. using grunt (although it does not repla
 
 For more in depth information I would recommend reading [Webpack Concepts](https://webpack.js.org/concepts/)
 
+# Installing on ubuntu
+These steps assume you have a fresh ubuntu server
+
+1. Update and upgrade ubuntu packges:
+
+ `sudo apt-get update`
+ `sudo apt-get upgrade`
+
+2. Install node from correct distribution: 
+
+  Follow instructions at https://github.com/nodesource/distributions#debinstall
+
+ - Ubuntu has an old version of node in its package manager, so installing from the proper distribution gives us the updated version of node
+
+3. Install pip:
+ `sudo apt-get install python-pip`
+
+4. Install virtualenv with pip:
+ `sudo pip install virtualenv`
+
+5. Create a virtualenv for this project:
+ `virtualenv projectname`
+
+6. Install git and clone this repo
+
+ `sudo apt-get install git`
+
+ `git clone https://github.com/Arjay123/django-react-playground.git`
+
+7. Navigate to root directory of project and install packages from requirements.txt:
+ `pip install -r requirements.txt`
+
+8. Navigate to app directory Install npm packages from package.json: 
+`npm install`
+
+9. Make django database migrations: 
+
+ `python manage.py makemigrations`
+`python manage.py migrate --run-syncdb`
+
+10. Seed database with sample data using custom command:
+`python manage.py database_init`
+
+11. Run django dev server: 
+`python manage.py runserver 0.0.0.0:8000`
+
+12. Run webpack watch: 
+`npm run watch`
+
+13. Check that you can access the server at `SERVER.IP.ADDRESS:8000` in your web browser
 
 # TODO
 - [x] DjangoCon US 2016 - Django and React: Perfect Together by Jack McCloy: https://www.youtube.com/watch?v=zYHv6U86X0Y
@@ -44,3 +94,4 @@ For more in depth information I would recommend reading [Webpack Concepts](https
 - [ ] What is Redux, is it needed for django-react?
 - [x] Create Djano Rest Framework sample app
 - [ ] What is django-webpack-loader?
+- [x] Install instructions
