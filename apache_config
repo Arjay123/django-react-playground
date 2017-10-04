@@ -1,0 +1,28 @@
+<VirtualHost *:80>
+        # I used this config file in a vagrant vm, it is relatively simple to adjust for your server
+        # Just change the paths to match your project location
+        #ServerName www.example.com
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        Alias /static /home/vagrant/django-react-playground/app/static
+        <Directory /home/vagrant/django-react-playground/app/static/>
+            Require all granted
+        </Directory>
+
+        WSGIDaemonProcess example.com python-home=/home/vagrant/envs/drp python-path=/home/vagrant/django-react-playground/app
+        WSGIProcessGroup example.com
+        WSGIScriptAlias / /home/vagrant/django-react-playground/app/app/wsgi.py
+
+        <Directory /home/vagrant/django-react-playground/app/app>
+            <Files wsgi.py>
+                Require all granted
+            </Files>
+        </Directory>
+
+</VirtualHost>
+
