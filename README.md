@@ -1,4 +1,4 @@
-# django-react-playground
+# django-react-template
 This repo is used to document my progress as I learn to hook react.js up with the django framework
 
 - [Objective](#objective)
