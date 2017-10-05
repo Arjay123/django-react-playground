@@ -33,6 +33,25 @@ And also replaces bundling css, js, etc. using grunt (although it does not repla
 
 For more in depth information I would recommend reading [Webpack Concepts](https://webpack.js.org/concepts/)
 
+# Redux
+
+At its core, Redux helps manage state in Single Page Applications by preventing different parts of the code from mutating the page model state directly. By using concepts called Actions and Reducers, parts of the page create a traceable Action object that gets sent to a Reducer which returns the new state of the model, based on the Action object.
+
+Redux accomplishes this through its three principles:
+
+1. State has a single source of truth
+2. State is read only
+3. Changes to the state are through pure function
+
+### Is Redux necessary?
+
+While Redux can help immensely in managing state for complex Single Page Applications, it is not necessary for all apps. Simple RSS reader applications, or 'read-only' applications like a blog website may not need Redux to manage its state because the state can only be changed by a small number of sources. However, because Redux works so nicely with React it may be worth looking into incorporating into your web apps when you anticipate your application becoming more complex and needing to scale in the future.
+
+### Redux Resources
+    [Redux Page](http://redux.js.org/)
+    [Redux with React](http://redux.js.org/docs/basics/UsageWithReact.html)
+    [You Might Not Need Redux by Dan Abramov](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
+
 # Installing on ubuntu
 These steps assume you have a fresh ubuntu server
 
@@ -41,7 +60,7 @@ These steps assume you have a fresh ubuntu server
  `sudo apt-get update`
  `sudo apt-get upgrade`
 
-2. Install node from correct distribution: 
+2. Install node from correct distribution:
 
   Follow instructions at https://github.com/nodesource/distributions#debinstall
 
@@ -65,10 +84,10 @@ These steps assume you have a fresh ubuntu server
 7. Navigate to root directory of project and install packages from requirements.txt:
  `pip install -r requirements.txt`
 
-8. Navigate to app directory Install npm packages from package.json: 
+8. Navigate to app directory Install npm packages from package.json:
 `npm install`
 
-9. Make django database migrations: 
+9. Make django database migrations:
 
  `python manage.py makemigrations`
 `python manage.py migrate --run-syncdb`
@@ -76,10 +95,10 @@ These steps assume you have a fresh ubuntu server
 10. Seed database with sample data using custom command:
 `python manage.py database_init`
 
-11. Run django dev server: 
+11. Run django dev server:
 `python manage.py runserver 0.0.0.0:8000`
 
-12. Run webpack watch: 
+12. Run webpack watch:
 `npm run watch`
 
 13. Check that you can access the server at `SERVER.IP.ADDRESS:8000` in your web browser
@@ -90,7 +109,7 @@ For deployment to an ubuntu server I would recommend switching the database engi
 
 ### Apache
 
-I use apache with mod_wsgi to deploy my projects, reference the [Django Docs](https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/modwsgi/) for more info on how to set up your apache config file.
+I use apache with mod_wsgi to deploy my projects, reference the [Django Docs](https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/modwsgi/) for more info on how to set up your apache config file. See [apache_config](apache_config) for an example on how to set up your Apache config file to work with Django and Virtualenv.
 
 # TODO
 - [x] DjangoCon US 2016 - Django and React: Perfect Together by Jack McCloy: https://www.youtube.com/watch?v=zYHv6U86X0Y
@@ -99,9 +118,9 @@ I use apache with mod_wsgi to deploy my projects, reference the [Django Docs](ht
 
 - [x] What is Babel?
 - [x] What is Webpack?
-- [ ] What is Redux, is it needed for django-react?
+- [x] What is Redux, is it needed for django-react?
 - [x] Create Djano Rest Framework sample app
 - [ ] What is django-webpack-loader?
 - [x] Install instructions
 - [x] Deployment
-- [ ] Deployment sample files
+- [x] Deployment sample files
