@@ -4,8 +4,15 @@ DEBUG = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'sample_db_dev',
+        'USER': 'sample_db_dev_user',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+        'TEST': {
+            'NAME': 'sample_db_dev_test',
+        }
     }
 }
 
