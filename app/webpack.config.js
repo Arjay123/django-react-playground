@@ -5,14 +5,14 @@ const BundleTracker = require('webpack-bundle-tracker')
 module.exports = {
     context: __dirname,
     entry: [
-        'webpack-dev-server/client?http://localhost:3000',
+        'webpack-dev-server/client?http://localhost:3001',
         'webpack/hot/only-dev-server',
         './src/index.js'
     ],
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './assets/bundles/'),
-        publicPath: 'http://localhost:3000/static/bundles/'
+        publicPath: 'http://localhost:3001/static/bundles/'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

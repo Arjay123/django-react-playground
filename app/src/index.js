@@ -13,7 +13,7 @@ class People extends React.Component {
 
     load() {
         $.ajax({
-            url: "http://localhost:8000/api/persons",
+            url: "http://localhost:8001/api/persons",
             datatype: 'json',
             cache: false,
             success: function(data) {
