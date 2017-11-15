@@ -2,6 +2,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import css from './index.css';
 
+const urlBase = API_URL;
+
 class People extends React.Component {
 
     constructor(props){
@@ -13,7 +15,7 @@ class People extends React.Component {
 
     load() {
         $.ajax({
-            url: "http://localhost:8001/api/persons",
+            url: API_URL + "persons",
             datatype: 'json',
             cache: false,
             success: function(data) {
