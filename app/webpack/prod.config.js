@@ -11,7 +11,7 @@ module.exports = merge(base, {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, '../assets/bundles/'),
-        publicPath: 'http://127.0.0.1/static/bundles/'
+        publicPath: 'http://DOMAINNAME/static/bundles/'
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -22,7 +22,7 @@ module.exports = merge(base, {
             jQuery: "jquery"
         }),
         new webpack.DefinePlugin({
-            'API_URL': JSON.stringify("http://127.0.0.1/api/")
+            'API_URL': JSON.stringify("http://DOMAINNAME/api/")
         })
     ]
 });
