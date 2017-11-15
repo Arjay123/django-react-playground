@@ -2,6 +2,14 @@
 This repo is used to document my progress as I learn to hook react.js up with the django framework
 
 - [Objective](#objective)
+- [Babel](#babel)
+- [Webpack](#webpack)
+- [Redux](#redux)
+- [Installing on Ubuntu](#installing-on-ubuntu)
+- [Deploying on Ubuntu](#deploying-on-ubuntu)
+- [Managing Multiple Django Settings](#managing-multiple-django-settings)
+- [Managing Multiple Webpack Configs](#managing-multiple-webpack-configs)
+- [Keeping Production Passwords Out of Source Control](#keeping-production-passwords-out-of-source-control)
 - [TODO](#todo)
 
 # Objective
@@ -114,6 +122,37 @@ For deployment to an ubuntu server I would recommend switching the database engi
 
 I use apache with mod_wsgi to deploy my projects, reference the [Django Docs](https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/modwsgi/) for more info on how to set up your apache config file. See [apache_config](apache_config) for an example on how to set up your Apache config file to work with Django and Virtualenv.
 
+### Bundling and Serving React
+
+To bundle your React.js app, using the npm commands specified in [package.json](package.json). For production, use `npm run build`, and for staging use `npm run stage`.
+
+Then collect your files into Django's static folder using `python manage.py collectstatic`
+
+This allows your React app to be served by Apache.
+
+# Managing Multiple Django Settings
+
+While I was trying to deploy my Django application on a staging server, I noticed I had to change a lot of my development settings in order to get it to work (i.e. DEBUG=False, ALLOWED_HOSTS, etc.). Then when going back to development mode I had to change these settings back, which was wildly inconvenient. However, I came across a solution in the book [Two Scoops of Django](https://www.amazon.com/Two-Scoops-Django-Best-Practices/dp/0981467342) which used multiple settings files (development, production, staging, etc). 
+
+In order to use the different settings files from the command line, you simply specify the path to your settings file as an argument.
+`python manage.py test --settings app.settings.dev_settings`
+Combining all the settings files in a [settings](app/app/settings) directory provides a little bit of organization as well.
+
+### NOTE:
+
+When using multiple settings files in deployment, you will need to specify in [wsgi.py](app/app/wsgi.py]) which files to use by setting the environment variable `DJANGO_SETTINGS_MODULE`
+
+
+# Managing Multiple Webpack Configs
+
+Similarly, there are settings that need to be changed when changing environments. Creating multiple [webpack](app/webpack) configs solves this problem. In order to select which config file to use, add the argument --config PATHTOCONFIGFILE. You can even add this argument into your [package.json](app/package.json) file and run the npm commands from the terminal without having to specify which config file every time.
+
+One example of the benefits of separating your config files is specifying the API_URL base your React app will reference. In my [development](app/webpack/dev.config.json) file, my API_URL uses localhost/127.0.0.1, where as in my [production](app/webpack/prod.config.json) settings I would use the domain name of my web application.
+
+# Keeping Production Passwords Out of Source Control
+
+An easy way to do this is to create a local file with your production secrets and add it to the .gitignore file. For example in my [Django Production Settings](app/app/settings/prod_settings.py), I pull my PostgresSQL password from a local file.
+
 # TODO
 - [x] DjangoCon US 2016 - Django and React: Perfect Together by Jack McCloy: https://www.youtube.com/watch?v=zYHv6U86X0Y
 
@@ -123,7 +162,9 @@ I use apache with mod_wsgi to deploy my projects, reference the [Django Docs](ht
 - [x] What is Webpack?
 - [x] What is Redux, is it needed for django-react?
 - [x] Create Djano Rest Framework sample app
-- [ ] What is django-webpack-loader?
 - [x] Install instructions
 - [x] Deployment
 - [x] Deployment sample files
+- [x] Managing multiple Django Settings
+- [x] Managing multiple Webpack Configs
+- [x] Keeping secrets out of source control
