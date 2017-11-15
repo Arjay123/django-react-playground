@@ -48,9 +48,12 @@ Redux accomplishes this through its three principles:
 While Redux can help immensely in managing state for complex Single Page Applications, it is not necessary for all apps. Simple RSS reader applications, or 'read-only' applications like a blog website may not need Redux to manage its state because the state can only be changed by a small number of sources. However, because Redux works so nicely with React it may be worth looking into incorporating into your web apps when you anticipate your application becoming more complex and needing to scale in the future.
 
 ### Redux Resources
-    [Redux Page](http://redux.js.org/)
-    [Redux with React](http://redux.js.org/docs/basics/UsageWithReact.html)
-    [You Might Not Need Redux by Dan Abramov](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
+
+[Redux Page](http://redux.js.org/)
+
+[Redux with React](http://redux.js.org/docs/basics/UsageWithReact.html)
+
+[You Might Not Need Redux by Dan Abramov](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
 
 # Installing on ubuntu
 These steps assume you have a fresh ubuntu server
