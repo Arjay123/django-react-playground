@@ -116,7 +116,13 @@ These steps assume you have a fresh ubuntu server
 
 # Deploying on Ubuntu
 
-For deployment to an ubuntu server I would recommend switching the database engine from SQLite to PostgreSQL, follow this [tutorial]( https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04).
+For deployment to an ubuntu server I would recommend switching the database engine from SQLite to PostgreSQL, follow this [tutorial]( https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04). 
+
+Note that when switching over from SQLite to PostgreSQL, I ran into an issue when migrating the database. To solve this, I ran the migrate command with a --run-syncdb argument.
+`python manage.py migrate --run-syncdb`
+
+[More info on --run-syncdb](https://docs.djangoproject.com/en/1.11/ref/django-admin/)
+
 
 ### Apache
 
