@@ -112,3 +112,4 @@ static
 prod_secrets.py
 .vscode
 assets/
+db.sqlite3
