@@ -100,7 +100,15 @@ ENV/
 # mypy
 .mypy_cache/
 
-node_modules
-db.sqlite3
-migrations
-webpack-stats.json
+# Vagrant
+.vagrant
+node_modules/
+thumbnails/
+media/
+migrations/
+.DS_Store
+static
+*webpack-stats.json
+prod_secrets.py
+.vscode
+assets/
