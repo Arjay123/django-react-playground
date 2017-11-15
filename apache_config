@@ -9,20 +9,20 @@
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-        Alias /static /home/vagrant/django-react-playground/app/static
-        <Directory /home/vagrant/django-react-playground/app/static/>
-            Require all granted
-        </Directory>
-
-        WSGIDaemonProcess example.com python-home=/home/vagrant/envs/drp python-path=/home/vagrant/django-react-playground/app
-        WSGIProcessGroup example.com
-        WSGIScriptAlias / /home/vagrant/django-react-playground/app/app/wsgi.py
-
-        <Directory /home/vagrant/django-react-playground/app/app>
-            <Files wsgi.py>
+        Alias /static /vagrant/app/static
+        <Directory /vagrant/app/static>
                 Require all granted
-            </Files>
         </Directory>
+
+        <Directory /vagrant/app/app>
+                <Files wsgi.py>
+                        Require all granted
+                </Files>
+        </Directory>
+
+        WSGIDaemonProcess sample python-home=/home/vagrant/env python-path=/vagrant/app
+        WSGIProcessGroup sample
+        WSGIScriptAlias / /vagrant/app/app/wsgi.py
 
 </VirtualHost>
 
