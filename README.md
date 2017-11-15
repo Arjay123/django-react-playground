@@ -17,6 +17,9 @@ When learning react I used create-react-app to automatically generate a project 
 
 Notes: I realize that with enough googling, I could probably find a repo or vm instance that has a preset sample application, but I think it's necessary to always try to understand the tech you're using.
 
+### [DjangoCon US 2016 - Django and React: Perfect Together by Jack McCloy](https://www.youtube.com/watch?v=zYHv6U86X0Y)
+
+> I watched this talk to get a baseline idea of how Django hooks up to React and take notes on things that I need to learn further before attemping to create my own app. 
 
 # Babel
 
@@ -160,10 +163,6 @@ One example of the benefits of separating your config files is specifying the AP
 An easy way to do this is to create a local file with your production secrets and add it to the .gitignore file. For example in my [Django Production Settings](app/app/settings/prod_settings.py), I pull my PostgresSQL password from a local file.
 
 # TODO
-- [x] DjangoCon US 2016 - Django and React: Perfect Together by Jack McCloy: https://www.youtube.com/watch?v=zYHv6U86X0Y
-
-> I watched this talk to get a baseline idea of how Django hooks up to React and take notes on things that I need to learn further before attemping to create my own app.
-
 - [x] What is Babel?
 - [x] What is Webpack?
 - [x] What is Redux, is it needed for django-react?
