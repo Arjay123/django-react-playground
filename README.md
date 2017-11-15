@@ -124,7 +124,7 @@ I use apache with mod_wsgi to deploy my projects, reference the [Django Docs](ht
 
 ### Bundling and Serving React
 
-To bundle your React.js app, using the npm commands specified in [package.json](package.json). For production, use `npm run build`, and for staging use `npm run stage`.
+To bundle your React.js app, using the npm commands specified in [package.json](app/package.json). For production, use `npm run build`, and for staging use `npm run stage`.
 
 Then collect your files into Django's static folder using `python manage.py collectstatic`
 
@@ -140,14 +140,14 @@ Combining all the settings files in a [settings](app/app/settings) directory pro
 
 ### NOTE:
 
-When using multiple settings files in deployment, you will need to specify in [wsgi.py](app/app/wsgi.py]) which files to use by setting the environment variable `DJANGO_SETTINGS_MODULE`
+When using multiple settings files in deployment, you will need to specify in [wsgi.py](app/app/wsgi.py) which files to use by setting the environment variable `DJANGO_SETTINGS_MODULE`
 
 
 # Managing Multiple Webpack Configs
 
 Similarly, there are settings that need to be changed when changing environments. Creating multiple [webpack](app/webpack) configs solves this problem. In order to select which config file to use, add the argument --config PATHTOCONFIGFILE. You can even add this argument into your [package.json](app/package.json) file and run the npm commands from the terminal without having to specify which config file every time.
 
-One example of the benefits of separating your config files is specifying the API_URL base your React app will reference. In my [development](app/webpack/dev.config.json) file, my API_URL uses localhost/127.0.0.1, where as in my [production](app/webpack/prod.config.json) settings I would use the domain name of my web application.
+One example of the benefits of separating your config files is specifying the API_URL base your React app will reference. In my [development](app/webpack/dev.config.js) file, my API_URL uses localhost/127.0.0.1, where as in my [production](app/webpack/prod.config.js) settings I would use the domain name of my web application.
 
 # Keeping Production Passwords Out of Source Control
 
